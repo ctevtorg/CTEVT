@@ -1,39 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 860" width="860" height="860">
   <defs>
-    <style> .st0{fill:none;stroke:#003da5;stroke-width:24;stroke-miterlimit:10;} .st1{fill:#003da5;} .st2{fill:none;stroke:#003da5;stroke-width:18;stroke-miterlimit:10;} .st3{fill:none;stroke:#003da5;stroke-width:12;stroke-miterlimit:10;} .label{font-family:Arial, Helvetica, sans-serif; font-size:92px; fill:#003da5; font-weight:700;} .year{font-family:Arial, Helvetica, sans-serif; font-size:86px; fill:#003da5;}</style>
+    <style>
+      .outline{fill:none;stroke:#003da5;stroke-width:24;stroke-miterlimit:10}
+      .gear-stroke{fill:none;stroke:#003da5;stroke-width:18;stroke-miterlimit:10}
+      .gear-fill{fill:#003da5}
+      .laurel{fill:none;stroke:#003da5;stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
+      .tools{fill:#003da5}
+      .label{fill:#003da5;font-family:Arial, Helvetica, sans-serif;font-weight:700;font-size:48px}
+      .year{fill:#003da5;font-family:Arial, Helvetica, sans-serif;font-size:40px}
+    </style>
   </defs>
 
   <!-- outer six-pointed star outline -->
-  <polygon class="st0" points="430,20 550,220 760,220 590,360 660,560 430,440 200,560 270,360 100,220 310,220" />
+  <polygon class="outline" points="430,20 550,220 760,220 590,360 660,560 430,440 200,560 270,360 100,220 310,220" />
 
   <!-- gear circle -->
   <g transform="translate(0,0)">
-    <circle cx="430" cy="300" r="150" class="st2" />
-    <!-- simple gear teeth around circle -->
-    <g stroke="#003da5" stroke-width="10" fill="#003da5">
-      <!-- draw simplified gear teeth as small rectangles around the circle -->
-      <!-- We'll place 24 teeth -->
-      <!-- generated positions -->
+    <!-- outer gear ring (stroke with teeth approximated by small rectangles) -->
+    <circle cx="430" cy="300" r="150" class="gear-stroke" />
+
+    <!-- gear teeth (24 teeth placed around the circle) -->
+    <g>
+      <!-- generate 24 teeth as small rectangles rotated around center 430,300 -->
+      <!-- each tooth is 10x20 positioned at top and rotated -->
+      <!-- teeth generated manually with transforms -->
+      <g fill="#003da5" stroke="none">
+        <rect x="425" y="132" width="10" height="22" rx="2" />
+        <g>
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(15 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(30 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(45 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(60 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(75 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(90 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(105 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(120 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(135 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(150 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(165 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(180 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(195 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(210 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(225 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(240 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(255 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(270 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(285 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(300 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(315 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(330 430 300)" />
+          <rect x="425" y="132" width="10" height="22" rx="2" transform="rotate(345 430 300)" />
+        </g>
       </g>
-    <!-- inner solid ring -->
+    </g>
+
+    <!-- inner solid ring / white background for center -->
     <circle cx="430" cy="300" r="120" fill="white" stroke="#003da5" stroke-width="8" />
   </g>
 
-  <!-- laurel leaves (simplified) -->
-  <path class="st3" d="M360 260c-30 30-40 80-10 110" />
-  <path class="st3" d="M500 260c30 30 40 80 10 110" />
-
-  <!-- central tool: simplified wrench and syringe-like implement -->
-  <g fill="#003da5">
-    <!-- syringe/pointed tool -->
-    <rect x="418" y="160" width="8" height="110" transform="rotate(-25 422 215)" />
-    <polygon points="418,150 432,150 425,165" />
-    <!-- wrench simplified -->
-    <path d="M390 330 l-30 8 l-6 12 l60 14 l6-12 z" />
+  <!-- laurel leaves (simplified mirrored paths) -->
+  <g transform="translate(0,0)">
+    <path class="laurel" d="M360 250 C350 260,330 280,320 310 C315 330,325 350,340 365" />
+    <path class="laurel" d="M500 250 C510 260,530 280,540 310 C545 330,535 350,520 365" />
+    <!-- stylized inner laurel curve at bottom -->
+    <path class="laurel" d="M360 360 C395 385,465 385,500 360" />
   </g>
 
-  <!-- organization label and year -->
+  <!-- central tools: stylized pen/scriber and wrench crossing -->
+  <g class="tools" transform="translate(0,0)">
+    <!-- syringe/pen-like implement rotated -->
+    <g transform="rotate(-25 430 215)">
+      <rect x="426" y="170" width="8" height="110" rx="2" />
+      <polygon points="426,160 446,160 436,178" />
+      <!-- small detail near tip -->
+      <rect x="438" y="206" width="6" height="20" rx="1" fill="#ffffff" />
+    </g>
+
+    <!-- wrench centered horizontally -->
+    <g transform="translate(0,0)">
+      <path d="M350 330 C365 320,415 320,430 330 L430 340 C415 345,365 345,350 335 z" fill="#003da5" />
+      <!-- more recognizable wrench ends -->
+      <path d="M370 342 l-18 8 c-6 3-8 10-5 16 3 6 10 8 16 5 l18-8 c6-3 8-10 5-16 -3-6-10-8-16-5z" fill="#003da5" transform="translate(40,0)" />
+    </g>
+  </g>
+
+  <!-- organization label and year positioned under gear to match original -->
   <text x="430" y="420" text-anchor="middle" class="label">CTEVT</text>
   <text x="430" y="520" text-anchor="middle" class="year">1989</text>
 </svg>
