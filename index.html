@@ -59,6 +59,15 @@
             justify-content:center;
         }
 
+        /* Ensure raster/logo fits nicely */
+        .logo img, .logo svg{
+            max-width: 100%;
+            max-height: 100%;
+            display:block;
+            height: auto;
+            width: auto;
+        }
+
         .org-title{
             color: var(--primary);
             font-weight: bold;
@@ -152,11 +161,8 @@
     <div class="certificate-container" role="document" aria-label="CTEVT Certificate">
         <header class="header">
             <div class="logo" aria-hidden="true">
-                <!-- Simple SVG emblem -->
-                <svg width="86" height="86" viewBox="0 0 86 86" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CTEVT logo">
-                    <circle cx="43" cy="43" r="41" stroke="#003da5" stroke-width="4" fill="white" />
-                    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Times New Roman, serif" font-size="40" fill="#003da5">★</text>
-                </svg>
+                <!-- Replaced old SVG with the provided logo file -->
+                <img src="assets/ctevt-logo.svg" alt="CTEVT logo" width="86" height="86" />
             </div>
             <div>
                 <div class="org-title">Council for Technical Education and Vocational Training</div>
